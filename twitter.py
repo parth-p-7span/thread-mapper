@@ -5,6 +5,7 @@ from utils import beautify_number
 import time
 
 
+# function to create thread in discord channel and send all the tweets in that thread
 def create_discord_thread(tweets):
     if len(tweets) >= 2:
         if len(tweets[0]) < 100:
@@ -28,6 +29,7 @@ def create_discord_thread(tweets):
         print('Thread length is less than 2')
 
 
+# function to map Twitter api response and store all the thread tweets in a python list
 def map_thread(client, tweet_id):
     tweets = []
     response = client.get_tweet(id=tweet_id, tweet_fields=['context_annotations', 'referenced_tweets', 'conversation_id'])
@@ -42,6 +44,7 @@ def map_thread(client, tweet_id):
     print('done')
 
 
+# returns tweets that our BOT is mentioned in
 def check_mentions(tw_client, last_id, start_time):
     tweets = tw_client.get_users_mentions(id=1523607877738708997,
                                           tweet_fields=['context_annotations', 'referenced_tweets', 'conversation_id'],
@@ -62,6 +65,7 @@ def check_mentions(tw_client, last_id, start_time):
         return data[0]['id']
 
 
+# function to get the DM messages
 def get_direct_messages(tw_client):
     messages = tw_client.list_direct_messages(count=5)
     for message in reversed(messages):

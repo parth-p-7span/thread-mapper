@@ -6,6 +6,7 @@ import constants
 logger = logging.getLogger()
 
 
+# returns tweepy Client
 def create_client():
     consumer_key = constants.CONSUMER_KEY
     consumer_secret = constants.CONSUMER_SECRET
@@ -23,6 +24,7 @@ def create_client():
     return client
 
 
+# returns tweepy API
 def create_api():
     auth = tweepy.OAuthHandler(constants.CONSUMER_KEY, constants.CONSUMER_SECRET)
     auth.set_access_token(constants.ACCESS_TOKEN, constants.ACCESS_TOKEN_SECRET)

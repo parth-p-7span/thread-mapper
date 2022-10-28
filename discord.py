@@ -3,6 +3,7 @@ import json
 import constants
 
 
+# function to create discord thread
 def create_thread(channel_id, name, message):
     base_url = "{}/{}/threads".format(constants.BASE_URL, channel_id)
     payload = {
@@ -17,6 +18,7 @@ def create_thread(channel_id, name, message):
     return json.loads(r.text)
 
 
+# function to send message in the given thread ID
 def send_thread_message(thread_id, message):
     base_url = "{}/{}/messages".format(constants.BASE_URL, thread_id)
     payload = {
