@@ -6,7 +6,7 @@ import constants
 logger = logging.getLogger()
 
 
-def create_api():
+def create_client():
     consumer_key = constants.CONSUMER_KEY
     consumer_secret = constants.CONSUMER_SECRET
     access_token = constants.ACCESS_TOKEN
@@ -22,3 +22,10 @@ def create_api():
                            wait_on_rate_limit=True)
     return client
 
+
+def create_api():
+    auth = tweepy.OAuthHandler(constants.CONSUMER_KEY, constants.CONSUMER_SECRET)
+    auth.set_access_token(constants.ACCESS_TOKEN, constants.ACCESS_TOKEN_SECRET)
+
+    api = tweepy.API(auth)
+    return api

@@ -61,3 +61,12 @@ def check_mentions(tw_client, last_id, start_time):
             index += 1
         return data[0]['id']
 
+
+def get_direct_messages(tw_client):
+    messages = tw_client.list_direct_messages(count=5)
+    for message in reversed(messages):
+        # who is sending?
+        sender_id = message.message_create["sender_id"]
+        # what is she saying?
+        text = message.message_create["message_data"]["text"]
+        print(sender_id, " : ", text)
