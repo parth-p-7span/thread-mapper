@@ -1,6 +1,13 @@
 # Thread mapper (Twitter to Discord)
 Python bot to map Twitter thread to discord Thread. 
 
+## Prerequisite
+
+- Python3
+- Twitter API
+- [Discord.py](https://discordpy.readthedocs.io/en/stable/)
+
+
 ## Installation
 
 ### Create discord application in developer portal
