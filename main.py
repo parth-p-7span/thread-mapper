@@ -17,7 +17,7 @@ tw_api = create_api()
 while True:
     try:
         last_id = check_mentions(tw_client, last_id, start_time)
-        get_direct_messages(tw_api)
+        # get_direct_messages(tw_api)
         time.sleep(2)
     except Exception as e:
         print(e)
